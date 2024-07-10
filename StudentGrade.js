@@ -1,33 +1,20 @@
-// student marks prompt and grade output
+const prompt = require('prompt-sync')();
 
-function studentGrade(){
-    
-    let input = prompt("Enter student marks (0-100):");
-
-    //convert input to a number
-
-    let marks = parseInt(input);
-
-    //check if input is a number
-
-    if(isNaN(marks)){
-        alert("Please enter a number between 0 and 100");
-        return;
+function studentGrader(){
+    const marks = parseInt(prompt('Enter your Mark: '));
+    if (marks<=100 && marks>79){
+        console.log('A')
+    }else if (marks<=79 && marks>=60){
+        console.log('B')
+    }else if(marks<=59 && marks>49){
+        console.log('C')
+    }else if (marks<=49 && marks>=40){
+        console.log('D')
+    }else if( marks>40){
+        console.log('E')
+    }else if (marks<0 || marks>100 ){
+        console.log("invalid mark")
     }
-
-    // determining the grade based on the input
-
-    let grade;
-    if (marks > 79){
-        grade = "A";
-    } else if (marks >=60){
-        grade = "B";
-    } else if (marks >=50){
-        grade = "C";
-    } else if (marks >=40){
-        grade = "D";
-    } else if (marks >=0){
-        grade = "E";
-    }
+    console.log(`Mark: ${marks}`);
 }
-studentGrade("54");
+studentGrader();
